@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.lospernas.snc.R;
 
@@ -50,6 +51,12 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         if (id == R.id.action_settings) {
             return true;
         }
+
+        if (id == R.id.action_search) {
+            Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
