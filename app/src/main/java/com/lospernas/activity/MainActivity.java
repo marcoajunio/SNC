@@ -1,13 +1,17 @@
 package com.lospernas.activity;
 
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
 
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
@@ -66,7 +70,31 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     @Override
     public void onDrawerItemSelected(View view, int position) {
+        displayView(position);
+    }
 
+    // Change View
+    private void displayView(int position) {
+        Fragment fragment = null;
+        String title = getString(R.string.app_name);
+
+        switch (position) {
+            case 0:
+                fragment = new FbLogin();
+                title = getString(R.string.title_home);
+                break;
+            default:
+                break;
+        }
+
+        if (fragment != null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_body, fragment);
+            fragmentTransaction.commit();
+
+            getSupportActionBar().setTitle(title);
+        }
     }
 
     //Stats to Facebook Login
