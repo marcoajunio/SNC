@@ -67,7 +67,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
     }
 
-    @Override
+    //Stats to Facebook Login
+    /*@Override
     protected void onResume() {
         super.onResume();
 
@@ -81,5 +82,5 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
-    }
+    }*/
 }
