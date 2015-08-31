@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             return true;
         }
 
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
 
         switch (position) {
             case 0:
-                fragment = new FbLogin();
+                fragment = new HomeFragment();
                 title = getString(R.string.title_home);
                 break;
             default:

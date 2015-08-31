@@ -1,5 +1,6 @@
 package com.lospernas.activity;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -68,4 +69,13 @@ public class FbLogin extends Fragment {
         return layout;
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
 }
