@@ -56,7 +56,7 @@ public class FbLogin extends Fragment {
 
             @Override
             public void onCancel() {
-                info.setText("Login attempt canceled.");
+                info.setText("Login attempt canceled. Testando");
             }
 
             @Override
