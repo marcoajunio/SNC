@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.lospernas.activity.HomeFragment">
+    tools:context="com.lospernas.fragments.HomeFragment">
 
     <TextView
         android:id="@+id/label"
@@ -17,19 +17,13 @@
         android:textSize="45dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/label"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
-        android:text="Edit fragment_home.xml to change the appearance"
-        android:textSize="12dp" />
-
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/login_button"
+    <Button
+        android:id="@+id/button_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_below="@+id/label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:text="Current Location" />
+
 </RelativeLayout>

@@ -22,5 +22,8 @@
         android:value="@string/facebook_app_id" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.access_coarse_location" />
+    <uses-permission android:name="android.permission.write_contacts" />
 
 </manifest>

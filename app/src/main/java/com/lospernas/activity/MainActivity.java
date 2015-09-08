@@ -1,5 +1,6 @@
 package com.lospernas.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,13 +15,17 @@ import android.widget.Toast;
 
 
 import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+import com.lospernas.fragments.FbLogin;
+import com.lospernas.fragments.HomeFragment;
 import com.lospernas.snc.R;
+import com.lospernas.utils.GpsTracker;
 
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener {
 
     private Toolbar mToolbar;
     private FragmentDrawer drawerFragment;
+
+    private GpsTracker gps;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         return true;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -55,12 +62,17 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
 
         if (id == R.id.action_search) {
             Toast.makeText(getApplicationContext(), "Search action is selected!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        if(id == R.id.action_location) {
+            getLocation();
             return true;
         }
 
@@ -82,6 +94,12 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
                 fragment = new HomeFragment();
                 title = getString(R.string.title_home);
                 break;
+            case 1:
+                fragment = new FbLogin();
+                break;
+            case 2:
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
             default:
                 break;
         }
@@ -92,7 +110,27 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             fragmentTransaction.replace(R.id.container_body, fragment);
             fragmentTransaction.commit();
 
-            getSupportActionBar().setTitle(title);
+            //getSupportActionBar().setTitle(title);
+        }
+    }
+
+    public void getLocation() {
+        gps = new GpsTracker(MainActivity.this); //new GpsTracker(getActivity()); on Frangments
+
+
+        // check if GPS enabled
+        if (gps.canGetLocation()) {
+
+            double latitude = gps.getLatitude();
+            double longitude = gps.getLongitude();
+
+            // \n is for new line
+            Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+        } else {
+            // can't get location
+            // GPS or Network is not enabled
+            // Ask user to enable GPS/network in settings
+            gps.showSettingsAlert();
         }
     }
 

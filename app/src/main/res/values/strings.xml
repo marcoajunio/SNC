@@ -3,13 +3,14 @@
 
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
+    <string name="action_location">Location</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
     <string name="facebook_app_id">1489616081333081</string>
 
     <string name="nav_item_home">Home</string>
-    <string name="nav_item_friends">Friends</string>
-    <string name="nav_item_notifications">Messages</string>
+    <string name="nav_item_friends">Facebook</string>
+    <string name="nav_item_notifications">Settings</string>
 
     <!-- navigation drawer item labels  -->
     <string-array name="nav_drawer_labels">

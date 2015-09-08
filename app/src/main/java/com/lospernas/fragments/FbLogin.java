@@ -1,4 +1,4 @@
-package com.lospernas.activity;
+package com.lospernas.fragments;
 
 import android.app.Activity;
 import android.support.v4.app.Fragment;
@@ -57,7 +57,7 @@ public class FbLogin extends Fragment {
 
             @Override
             public void onCancel() {
-                info.setText("Login attempt canceled. Testando");
+                info.setText("Login attempt canceled.");
             }
 
             @Override
