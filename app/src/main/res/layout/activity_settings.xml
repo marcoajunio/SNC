@@ -5,21 +5,21 @@
 
 
     <android.support.v7.widget.Toolbar
-
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ToolbarTheme" />
 
 
     <TextView
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Settings" />
+        android:text="@string/title_activity_settings"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
 
 
 </FrameLayout>

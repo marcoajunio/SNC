@@ -174,7 +174,6 @@ public class GpsTracker extends Service implements LocationListener {
             }
         });
 
-        // Showing Alert Message
         alertDialog.show();
     }
 
